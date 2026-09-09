@@ -13,21 +13,5 @@ public class Todo {
     long id;
     String title;
     String description;
-    Boolean isCompleted;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Boolean getCompleted() {
-        return isCompleted;
-    }
+    Boolean Completed;
 }
