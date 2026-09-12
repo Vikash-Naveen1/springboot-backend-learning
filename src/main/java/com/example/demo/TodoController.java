@@ -2,6 +2,7 @@ package com.example.demo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 public class TodoController {
     @Autowired
     private TodoService tos;
+
     @PostMapping("/create")
     ResponseEntity<Todo> createUser(@RequestBody Todo todo){
         return new ResponseEntity<>(tos.createTodo(todo), HttpStatus.CREATED);
@@ -39,5 +41,10 @@ public class TodoController {
     @DeleteMapping("/{id}")
     void deleteById(@PathVariable long id){
         tos.deleteById(id);
+    }
+
+    @GetMapping("/page")
+    ResponseEntity<Page<Todo>> getTodosPage(@RequestParam int page,@RequestParam int size){
+        return new ResponseEntity<>(tos.getAllTodosPages(page,size),HttpStatus.OK);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -13,5 +14,6 @@ public class Todo {
     long id;
     String title;
     String description;
-    Boolean Completed;
+    @Column(name="is_completed")
+    boolean completed;
 }
